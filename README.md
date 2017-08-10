@@ -37,7 +37,7 @@ The PC should be running Ubuntu (or equivalent) with the following installed:
 - Scipy
 - Netifaces
 
-## How to set it up
+## How to set up the project
 ### Wiring
 - Connect the PWM pin (white wire) for the ESC (controlling main forwards/backwards motor) to pin 9 of the Arduino
 - Connect the PWM pin for the front steering motor (controlling left/right steering) to pin 8 of the Arduino
@@ -80,7 +80,8 @@ In the `Gamepad_Driver_Server.py` file in the PC folder, near the bottom of the 
 - VNC into it (SSH should work too, though not tested)
   - Username: pi; Password: raspberry
   - Remote Desktop Viewer on Ubuntu should work for VNC
-- The only script that needs to be run is `Combined_Client.py`. This script needs to be run only after the script on the PC has started
+- The only script that needs to be run on the Raspberry Pi is `Combined_Client.py`. This script should be run only after the script on the PC has started. Use VNC on the PC to easily launch the script on the Raspberry Pi.
+- I used the TP-Link wireless router as a dedicated network for this project but you should be able to use any unrestricted wireless network
 
 ### Collecting Training Data
 Note: You can skip this step if you want to try out my existing trained model (the `model.ckpt` file included in the repository). Chances are though, it won't do well with your track as it has been specifically trained on mine (and it isn't an elaborate track)
@@ -108,7 +109,7 @@ Note: You can skip this step if you want to try out my existing trained model (t
 - Copy this file to the `save` folder within the `PC` folder
 	so the main script to drive the car can access it
   
-### To playback collected images with the trained CNN model
+### Playing back collected images with the trained CNN model
 If you want to playback the images you collected in the training process to see what the trained Convoluted Neural Network would predict, do the following:
 - Go to the `Training Scripts` folder
 - Open and run the `run_dataset_edit.py` file 

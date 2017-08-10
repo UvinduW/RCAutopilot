@@ -1,0 +1,3 @@
+Training images collected will be saved in this folder. 
+Once training is complete, copy these images to the 
+"training_images" folder in the "Training Scripts" folder

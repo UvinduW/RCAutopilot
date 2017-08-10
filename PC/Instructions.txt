@@ -1,0 +1,103 @@
+Instructions for operating autonomous RC car
+
+Author: Uvindu J Wijesinghe (2017)
+
+
+** General Setup **
+- Raspberry Pi should be connected to the same network as the PC
+
+- VNC into it (SSH should work too, though not tested)
+	Username: pi; Password: raspberry
+	Remote Desktop Viewer on Ubuntu should work for VNC
+	IP Address of Pi tends to be 192.68.0.101-103 on TP-Link
+
+- The only script that needs to be run is "Combined_Client.py"
+	This script needs to be run only after the script on the PC has started
+
+
+** To collect training data and train the CNN **
+- Open Gamepad_Driver_Server.py
+
+- Ensure the image capture variables are set to allow image
+	capture and the starting number for the images is appropriate
+
+- Ensure gamepad is connected to computer before running the script
+
+- Run the script
+
+- Run the "Combined_Client.py" script on the Raspbery Pi
+
+- Wait for camera display to show up on PC
+
+- Press "A" on the gamepad to start recording images if image
+	capture is paused
+
+- Check "training_images" folder to ensure images are being captured
+
+- To pause capture, press "A" again on the gamepad
+
+- To stop the script press "B" on the gamepad
+
+- Images should now be found in the "training_images" folder
+
+- Move the images so that they are in the "training_images" folder
+	in the "For Training" folder
+
+- Open the "train.py" file
+
+- Adjust epochs or other necessary settings
+
+- Run the script
+
+- Generated file can be found in the "save" folder with the file
+	name "model.ckpt"
+
+- Copy this file to the "save" folder within the "Working" folder
+	so the main script to drive the car can access it
+
+
+** To playback training data with the trained CNN **
+- Go to the "For Training" folder
+
+- Open and run the "run_dataset_edit.py" file 
+
+
+** To run the car **
+- Open Gamepad_Driver_Server.py
+
+- Ensure all user configurable settings are set as needed
+
+- Ensure gamepad is connected to computer before running the script
+
+- Run the script
+
+- Wait until IP address is printed in the terminal
+
+- Ensure client script on Raspberry Pi has same IP address
+
+- Run the script on the Raspberry Pi
+
+- Wait for camera feed window to show on computer (you should alse here a
+	couple of beeps from the car)
+
+- Now the car should be ready. It starts off in autonomous mode with zero
+	throttle
+
+- Use gamepad keys as follows:
+
+Start - Toggle between manual and autonomous mode
+Right trigger - Forwards throttle
+Left trigger - Reverse throttle
+Left thumbstick - Steering input (needs to be centered properly for 
+	autonomous mode to activate - otherwise it can think there is some manual
+	input being given)
+A - Toggle capturing images to disk
+B - Quits the script
+X - Decrement speed of car when in autonomous mode
+Y - Increment speed of car when in autonomous mode
+
+Note: If car is in autonomous mode, it will revert to manual mode if gamepad
+      is also giving driving commands. It will revert back to autonomous
+      mode once the gamepad input stops.
+
+

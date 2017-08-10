@@ -17,7 +17,7 @@ Once the trained model has been obtained, the car can be run in autonomous mode.
 These are the components I used to make this project. These aren't set in stone, and can be substituted for other parts that may do a similar or even better job
 - Raspberry Pi
 - Rapberry Pi Camera Module
-- Portable Power Bank
+- Portable Power Bank (Anker Astro E1 5200 mAh)
 - Arduino
 - Modified Tamiya Ford Focus RS WRC 02 Chassis
   - TL-01 Chassis
@@ -52,6 +52,7 @@ __Create Arduino Sketch__
 - Create a servo variable for the drive motor (eg `Servo driveMotor;`)
 - Attach pin 9 to the drive motor variable in setup (eg. `driveMotor.attach(9);` )
 - Write script that will take a number between 0 and 180 from the Serial monitor and write it to the Servo declared above
+- Upload this sketch to the Arduino
 
 __Put ESC into Calibration mode__
 - First, throttle input to ESC should be set to neutral. Do this by writing `90` to the servo above (using the Serial Monitor)
@@ -59,10 +60,21 @@ __Put ESC into Calibration mode__
 - When the instructions ask you to provide full throttle, write `0` to the servo
 - When instructions ask you to provide full brakes, write `180` to the servo
 
-If you completed that without a problem, the ESC should now be calibrated! You can test it by writing different values to the Servo and seeing how the motor reacts. Writing a `90` should neutral the motor so it stops spinning. As you decrease towards `0` the motor should speed up. Between `90` and `180` is braking action, or reverse if it is enabled on the ESC. To engage reverse you may need to input a `neutral-brake-neutral-brake/reverse` sequence eg. writing the following in succession: 90, 120, 90, 120. 
+If you completed that without a problem, the ESC should now be calibrated! You can test it by writing different values to the Servo and seeing how the motor reacts. Writing a `90` should neutral the motor so it stops spinning. As you decrease towards `0` the motor should speed up. Between `90` and `180` is braking action, or reverse if it is enabled on the ESC. To engage reverse you may need to input a `neutral-brake-neutral-brake/reverse` sequence eg. writing the following in succession to the servo: `90`, `120`, `90`, `120`. 
+
+### Connecting Components
+The Raspberry Pi Camera Module should be connected to the Raspberry Pi using the ribon cable. Mount the Raspberry Pi and the camera on the car. Ensure camera is positioned such that it has a clear view of the track ahead. Connect the Arduino to the Raspberry Pi via a USB cable. Place the power bank on the car and connect it up to power the Raspberry Pi. The powerbank can be disconnected when not in use or when testing on a bench with a powersource already available.
+
+### Setting up the scripts
+The Arduino sketch in the `\Arduino\Tamiya_Control\` folder should be uploaded to the Arduino. This can be done by installing the Arduino IDE on the Raspberry Pi directly, or by connecting the Arduino to the PC to upload the sketch, and then connecting it back to the Raspberry Pi.
+
+The script in the "Raspberry Pi" folder should be copied to the Raspberry Pi and the scripts in the PC folder should be copied to the computer running Ubuntu.
+
+At the top of the `Combined_Client.py` script on the Raspberry Pi, ensure the IP address is that of the PC that will be receiving the video stream and computing commands. Also ensure that the port number matches that in the `Gamepad_Driver_Server.py` script on the PC. Also note that the Serial port name given to the Arduino USB port may differ from `ttyACM0`. You can determine the Serial port name by running `dmesg | grep tty` in terminal.
+
+In the `Gamepad_Driver_Server.py` file in the PC folder, near the bottom of the file under the comment `Get PC IP Address` the `wlp3s0` and the `enp4s0` refer to the wireless and wired network interfaces available on my PC. These may be different on yours, and you should change them to match the interfaces on your PC. You can obtain the name by entering `ifconfig` into a terminal window. These lines are used to obtain and display the IP address of the current PC. If you have trouble with these lines, you can remove the `ni.ifaddresses('wlp3s0')` line and set `wifi = 0` and `ethernet = 0` to avoid errors.
 
 
-
-To do:
+## To do:
 - Explain how to use the scripts
 - Add software version numbers

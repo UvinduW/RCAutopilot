@@ -74,7 +74,80 @@ At the top of the `Combined_Client.py` script on the Raspberry Pi, ensure the IP
 
 In the `Gamepad_Driver_Server.py` file in the PC folder, near the bottom of the file under the comment `Get PC IP Address` the `wlp3s0` and the `enp4s0` refer to the wireless and wired network interfaces available on my PC. These may be different on yours, and you should change them to match the interfaces on your PC. You can obtain the name by entering `ifconfig` into a terminal window. These lines are used to obtain and display the IP address of the current PC. If you have trouble with these lines, you can remove the `ni.ifaddresses('wlp3s0')` line and set `wifi = 0` and `ethernet = 0` to avoid errors.
 
+## How to run the project
+### General Setup
+- Raspberry Pi should be connected to the same network as the PC
+- VNC into it (SSH should work too, though not tested)
+  - Username: pi; Password: raspberry
+  - Remote Desktop Viewer on Ubuntu should work for VNC
+- The only script that needs to be run is `Combined_Client.py`. This script needs to be run only after the script on the PC has started
+
+### Collecting Training Data
+Note: You can skip this step if you want to try out my existing trained model (the `model.ckpt` file included in the repository). Chances are though, it won't do well with your track as it has been specifically trained on mine (and it isn't an elaborate track)
+- Open `Gamepad_Driver_Server.py`
+- Ensure the image capture variables are set to allow image
+	capture and the starting number for the images is appropriate
+- Ensure gamepad is connected to computer before running the script
+- Run the script
+- Run the `Combined_Client.py` script on the Raspbery Pi
+- Wait for camera display to show up on PC
+- With default user configurable settings, the car will start off in Autonomous mode. Press `Start` on the gamepad to switch to Manual mode
+- Press `A` on the gamepad to start recording images if image
+	capture is paused
+- Check `training_images` folder to ensure images are being captured
+- To pause capture, press `A` again on the gamepad
+- To end the script press `B` on the gamepad
+- Images should now be found in the `training_images` folder
+- Move the images so that they are in the `training_images` folder
+	in the `Training Scripts` folder
+- Open the `train.py` file
+- Adjust epochs or other necessary settings
+- Run the script
+- Generated file can be found in the `save` folder within the `Training Scripts` folder with the file
+	name `model.ckpt`
+- Copy this file to the `save` folder within the `PC` folder
+	so the main script to drive the car can access it
+  
+### To playback collected images with the trained CNN model
+If you want to playback the images you collected in the training process to see what the trained Convoluted Neural Network would predict, do the following:
+- Go to the `Training Scripts` folder
+- Open and run the `run_dataset_edit.py` file 
+
+### Drive car in Autonomous mode
+- Open `Gamepad_Driver_Server.py`
+- Ensure all user configurable settings are set as needed
+- Ensure gamepad is connected to computer before running the script
+- Run the script
+- Wait until IP address is printed in the terminal
+- Ensure client script on Raspberry Pi has same IP address
+- Run the script on the Raspberry Pi
+- Wait for camera feed window to show on computer
+- Now the car should be ready. It starts off in autonomous mode with zero
+	throttle
+- Use gamepad keys as follows:
+
+  Start - Toggle between manual and autonomous mode
+  
+  Right trigger - Forwards throttle
+  
+  Left trigger - Reverse throttle
+  
+  Left thumbstick - Steering input (needs to be centered properly for 
+    autonomous mode to activate - otherwise it can think there is some manual
+    input being given)
+    
+  A - Toggle capturing images to disk
+  
+  B - Quits the script
+  
+  X - Decrement speed of car when in autonomous mode
+  
+  Y - Increment speed of car when in autonomous mode
+
+  Note: If car is in autonomous mode, it will revert to manual mode if gamepad
+        is also giving driving commands. It will revert back to autonomous
+        mode once the gamepad input stops.
+
 
 ## To do:
-- Explain how to use the scripts
 - Add software version numbers

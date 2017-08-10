@@ -12,7 +12,8 @@ __Driving__
 
 Once the trained model has been obtained, the car can be run in autonomous mode. Once the car is set to autonomous mode and a desired speed is selected, the PC takes the input image streaned from the Raspberry Pi, processes it using a convoluted neural network, and generates an appropriate steering angle. This steering angle is then sent back to the Raspberry Pi over wifi. An Arduino is connected to the Raspberry Pi over USB, and this steering angle is sent to the Arduino. The Arduino is connected to the ESC and provides the appropriate PWM signal to it, ensuring the car turns by the required amount.
 
-## Components
+## Prerequisites
+### Components
 These are the components I used to make this project. These aren't set in stone, and can be substituted for other parts that may do a similar or even better job
 - Raspberry Pi
 - Rapberry Pi Camera Module
@@ -22,9 +23,19 @@ These are the components I used to make this project. These aren't set in stone,
   - TL-01 Chassis
   - TBLE-02S Electronic Speed Control (ESC)
   - 7.2V 3000 mAh NiMH battery
-- PC with Ubuntu
+- PC
+  - Dedicated graphics card can help speed up training
 - TP-Link TL-WR702N Nano Router (optional)
 - Xbox One controller (code can be altered to work with other controllers if they can be recognised on Ubuntu)
+### Software
+The PC should be running Ubuntu (or equivalent) with the following installed:
+- Xbox drivers (xboxdrv)
+- Pygame
+- Numpy
+- Tensorflow
+- OpenCV (version 2.4.x used here)
+- Scipy
+- Netifaces
 
 ## How to set it up
 ### Wiring
@@ -52,5 +63,6 @@ If you completed that without a problem, the ESC should now be calibrated! You c
 
 
 
-Todo:
+To do:
 - Explain how to use the scripts
+- Add software version numbers

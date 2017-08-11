@@ -27,6 +27,7 @@ These are the components I used to make this project. These aren't set in stone,
   - Dedicated graphics card can help speed up training
 - TP-Link TL-WR702N Nano Router (optional)
 - Xbox One controller (code can be altered to work with other controllers if they can be recognised on Ubuntu)
+- Wires
 ### Software
 The PC should be running Ubuntu (or equivalent) with the following installed:
 - Xbox drivers (xboxdrv)
@@ -40,7 +41,7 @@ The PC should be running Ubuntu (or equivalent) with the following installed:
 ## How to set up the project
 ### Wiring
 - Connect the PWM pin (white wire) for the ESC (controlling main forwards/backwards motor) to pin 9 of the Arduino
-- Connect the PWM pin for the front steering motor (controlling left/right steering) to pin 8 of the Arduino
+- Connect the PWM pin for the front steering servo (controlling left/right steering - yellow wire on mine) to pin 8 of the Arduino
 - Ensure ESC is common grounded with the Arduino by connecting ground of ESC (black wire) to the GND pin on the Arduino
 
 ### ESC Calibration
@@ -73,6 +74,9 @@ The script in the "Raspberry Pi" folder should be copied to the Raspberry Pi and
 At the top of the `Combined_Client.py` script on the Raspberry Pi, ensure the IP address is that of the PC that will be receiving the video stream and computing commands. Also ensure that the port number matches that in the `Gamepad_Driver_Server.py` script on the PC. Also note that the Serial port name given to the Arduino USB port may differ from `ttyACM0`. You can determine the Serial port name by running `dmesg | grep tty` in terminal.
 
 In the `Gamepad_Driver_Server.py` file in the PC folder, near the bottom of the file under the comment `Get PC IP Address` the `wlp3s0` and the `enp4s0` refer to the wireless and wired network interfaces available on my PC. These may be different on yours, and you should change them to match the interfaces on your PC. You can obtain the name by entering `ifconfig` into a terminal window. These lines are used to obtain and display the IP address of the current PC. If you have trouble with these lines, you can remove the `ni.ifaddresses('wlp3s0')` line and set `wifi = 0` and `ethernet = 0` to avoid errors.
+
+### Setting up the track
+The track should have good contrast between the driveable and non-driveable areas. My track was a black "road" built on a white surface. I used white tabletops as my platform and used adhesive black vinyl to make the road. If you chose not to train a neural network, the included trained model will likely only work in a similar "black track on white surface" setup.
 
 ## How to run the project
 ### General Setup

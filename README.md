@@ -126,26 +126,17 @@ If you want to playback the images you collected in the training process to see 
 - Now the car should be ready. It starts off in autonomous mode with zero
 	throttle
 - Use gamepad keys as follows:
-
-  Start - Toggle between manual and autonomous mode
-  
-  Right trigger - Forwards throttle
-  
-  Left trigger - Reverse throttle
-  
-  Left thumbstick - Steering input (needs to be centered properly for 
+  - Start - Toggle between manual and autonomous mode
+  - Right trigger - Forwards throttle
+  - Left trigger - Reverse throttle
+  - Left thumbstick - Steering input (needs to be centered properly for 
     autonomous mode to activate - otherwise it can think there is some manual
     input being given)
-    
-  A - Toggle capturing images to disk
-  
-  B - Quits the script
-  
-  X - Decrement speed of car when in autonomous mode
-  
-  Y - Increment speed of car when in autonomous mode
-
-  Note: If car is in autonomous mode, it will revert to manual mode if gamepad
+  - A - Toggle capturing images to disk 
+  - B - Quits the script
+  - X - Decrement speed of car when in autonomous mode
+  - Y - Increment speed of car when in autonomous mode
+  - Note: If car is in autonomous mode, it will revert to manual mode if gamepad
         is also giving driving commands. It will revert back to autonomous
         mode once the gamepad input stops.
 

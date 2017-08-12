@@ -29,15 +29,15 @@ These are the components I used to make this project. These aren't set in stone,
 - Xbox One controller (code can be altered to work with other controllers if they can be recognised on Ubuntu)
 - Wires
 ### Software
-The PC should be running Ubuntu (or equivalent) with the following installed:
+The PC should be running Ubuntu (or equivalent). The following software packages should be installled (I've included the version numbers I used in case the latest versions cause issues):
 - Xbox drivers for Ubuntu (xboxdrv)
 - Python 2
-- Pygame
-- Numpy
-- Tensorflow
-- OpenCV (version 2.4.x used here)
-- Scipy
-- Netifaces
+- Pygame: 1.9.1
+- Numpy: 1.11.0
+- Tensorflow: 1.1.0
+- OpenCV: 2.4.13
+- Scipy: 0.17.0
+- Netifaces: 0.10.4
 
 ## How to set up the project
 ### Wiring
@@ -147,4 +147,4 @@ If you want to playback the images you collected in the training process to see 
 
 
 ## To do:
-- Add software version numbers
+- Confirm software version numbers

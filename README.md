@@ -15,7 +15,7 @@ Once the trained model has been obtained, the car can be run in autonomous mode.
 ## Prerequisites
 ### Components
 These are the components I used to make this project. These aren't set in stone, and can be substituted for other parts that may do a similar or even better job
-- Raspberry Pi
+- Raspberry Pi 3
 - Rapberry Pi Camera Module
 - Portable Power Bank (Anker Astro E1 5200 mAh)
 - Arduino
@@ -30,7 +30,8 @@ These are the components I used to make this project. These aren't set in stone,
 - Wires
 ### Software
 The PC should be running Ubuntu (or equivalent) with the following installed:
-- Xbox drivers (xboxdrv)
+- Xbox drivers for Ubuntu (xboxdrv)
+- Python 2
 - Pygame
 - Numpy
 - Tensorflow
@@ -82,7 +83,7 @@ The track should have good contrast between the driveable and non-driveable area
 ### General Setup
 - Raspberry Pi should be connected to the same network as the PC
 - VNC into it (SSH should work too, though not tested)
-  - Username: pi; Password: raspberry
+  - Default Username: pi; Default Password: raspberry
   - Remote Desktop Viewer on Ubuntu should work for VNC
 - The only script that needs to be run on the Raspberry Pi is `Combined_Client.py`. This script should be run only after the script on the PC has started. Use VNC on the PC to easily launch the script on the Raspberry Pi.
 - I used the TP-Link wireless router as a dedicated network for this project but you should be able to use any unrestricted wireless network

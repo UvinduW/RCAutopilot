@@ -10,7 +10,7 @@ Once the training is complete, a script needs to be run to train the model. Depe
 
 __Driving__
 
-Once the trained model has been obtained, the car can be run in autonomous mode. Once the car is set to autonomous mode and a desired speed is selected, the PC takes the input image streaned from the Raspberry Pi, processes it using a convoluted neural network, and generates an appropriate steering angle. This steering angle is then sent back to the Raspberry Pi over wifi. An Arduino is connected to the Raspberry Pi over USB, and this steering angle is sent to the Arduino. The Arduino is connected to the ESC and provides the appropriate PWM signal to it, ensuring the car turns by the required amount.
+Once the trained model has been obtained, the car can be run in autonomous mode. Once the car is set to autonomous mode and a desired speed is selected, the PC takes the input image streamed from the Raspberry Pi, processes it using a convoluted neural network, and generates an appropriate steering angle. This steering angle is then sent back to the Raspberry Pi over wifi. An Arduino is connected to the Raspberry Pi over USB, and this steering angle is sent to the Arduino. The Arduino is connected to the ESC and steering servo and provides them with the appropriate PWM signal to it, ensuring the car drives at the specified speed and turns by the required amount.
 
 ## Prerequisites
 ### Components
@@ -41,6 +41,7 @@ The PC should be running Ubuntu (or equivalent). The following software packages
 
 ## How to set up the project
 ### Wiring
+*Note: On my Tamiya RC Car, the steering is controlled by a servo and the throttle is controlled by an ESC. The ESC can also be treated as a servo on the Arduino, making it easier to send control signals to it.* 
 - Connect the PWM pin (white wire) for the ESC (controlling main forwards/backwards motor) to pin 9 of the Arduino
 - Connect the PWM pin for the front steering servo (controlling left/right steering - yellow wire on mine) to pin 8 of the Arduino
 - Ensure ESC is common grounded with the Arduino by connecting ground of ESC (black wire) to the GND pin on the Arduino

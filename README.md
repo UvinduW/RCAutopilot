@@ -18,7 +18,7 @@ These are the components I used to make this project. These aren't set in stone,
 - Raspberry Pi 3
 - Rapberry Pi Camera Module
 - Portable Power Bank (Anker Astro E1 5200 mAh)
-- Arduino
+- Arduino Uno Rev 3
 - Modified Tamiya Ford Focus RS WRC 02 Chassis
   - TL-01 Chassis
   - TBLE-02S Electronic Speed Control (ESC)

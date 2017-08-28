@@ -10,7 +10,7 @@ Once the training is complete, a script needs to be run to train the model. Depe
 
 __Driving__
 
-Once the trained model has been obtained, the car can be run in autonomous mode. Once the car is set to autonomous mode and a desired speed is selected, the PC takes the input image streamed from the Raspberry Pi, processes it using a convoluted neural network, and generates an appropriate steering angle. This steering angle is then sent back to the Raspberry Pi over wifi. An Arduino is connected to the Raspberry Pi over USB, and this steering angle is sent to the Arduino. The Arduino is connected to the ESC and steering servo and provides them with the appropriate PWM signal to it, ensuring the car drives at the specified speed and turns by the required amount.
+Once the trained model has been obtained, the car can be run in autonomous mode. Once the car is set to autonomous mode and a desired speed is selected, the PC takes the input image streamed from the Raspberry Pi, processes it using a convolutional neural network, and generates an appropriate steering angle. This steering angle is then sent back to the Raspberry Pi over wifi. An Arduino is connected to the Raspberry Pi over USB, and this steering angle is sent to the Arduino. The Arduino is connected to the ESC and steering servo and provides them with the appropriate PWM signal to it, ensuring the car drives at the specified speed and turns by the required amount.
 
 ## Prerequisites
 ### Components
@@ -118,7 +118,7 @@ Note: You can skip this step if you want to try out my existing trained model (t
 	so the main script to drive the car can access it
   
 ### Playing back collected images with the trained CNN model
-If you want to playback the images you collected in the training process to see what the trained Convoluted Neural Network would predict, do the following:
+If you want to playback the images you collected in the training process to see what the trained Convolutional Neural Network would predict, do the following:
 - Go to the `Training Scripts` folder
 - Open and run the `run_dataset_edit.py` file 
 

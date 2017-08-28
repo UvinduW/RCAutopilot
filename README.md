@@ -1,7 +1,7 @@
 # RCAutopilot
 __Note: Documentation for this repository is still in progress and there may be omissions__
 ## Overview
-This is a small scale demonstration of how a self-driving system could be implemented using a toy radio controlled car. This project has been implemented mainly in Python with a bit of C/C++ needed for the Arduino.
+This is a small scale demonstration of how a self-driving system could be implemented using a toy radio controlled car by having the car drive itself around a well defined track. This project has been implemented mainly in Python with a bit of C/C++ needed for the Arduino.
 ### How it works
 __Training__
 

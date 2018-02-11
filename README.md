@@ -175,4 +175,5 @@ If you want to playback the images you collected in the training process to see 
 
 
 ## To do:
-- Confirm software version numbers
+- Small bug in stop sign recognition code needs to be fixed
+- Add menu system that can be navigated using gamepad to change settings on the fly

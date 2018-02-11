@@ -47,7 +47,7 @@ These are the components I used to make this project. These aren't set in stone,
 - Xbox One controller (code can be altered to work with other controllers if they can be recognised on Ubuntu)
 - Wires
 ### Software
-The PC should be running Ubuntu (or equivalent). The following software packages should be installled (I've included the version numbers I used in case the latest versions cause issues):
+The PC should be running Ubuntu (or equivalent). The following software packages should be installled:
 - Xbox drivers for Ubuntu (xboxdrv)
 - Python 2
 - Pygame: 1.9.1
@@ -56,6 +56,13 @@ The PC should be running Ubuntu (or equivalent). The following software packages
 - OpenCV: 2.4.13
 - Scipy: 0.17.0
 - Netifaces: 0.10.4
+
+If you're using Anaconda to create a virtual environment, I've generated a .yml file from my working environment which you can use to create a virtual environment for this project with all the required Python dependancies automatically downloaded (and probably a few packages that aren't actually needed!). This is probably the best way to ensure that all the required dependancies are installed. To follow this method, these are the steps:
+- Ensure Anaconda is installed on your machine
+- Download the rcautopilot_env.yml file in the root directory
+- Follow the instructions [here](https://conda.io/docs/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) to create the environment from the .yml file
+- Now to ensure you use that environment in your project, set the interpreter of your IDE to the RCAutopilot enviroment that was just created. I used PyCharm to develop this project and [these are the instructions](https://www.jetbrains.com/help/pycharm/configuring-python-interpreter.html) to set the interpreter for it.
+- Note: This only installs the Python dependancies. You still need to install xboxdrv manually but this can be done easily using apt-get. It might also be helpful to download jstest-gtk to help check and calibrate the gamepad.
 
 ## How to set up the project
 ### Wiring
@@ -168,4 +175,5 @@ If you want to playback the images you collected in the training process to see 
 
 
 ## To do:
-- Confirm software version numbers
+- Small bug in stop sign recognition code needs to be fixed
+- Add menu system that can be navigated using gamepad to change settings on the fly

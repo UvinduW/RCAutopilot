@@ -11,7 +11,7 @@ This is a small scale demonstration of how a self-driving system could be implem
 
 __Acknowledgements__
 
-SullyChen's Autopilot-Tensorflow project was used and slightly adapted to generate the steering angles for the car when driving in Autonomous mode. He based his tensorflow implementation on a convolutional neural network described in a Nvidia paper. You can see their project here: https://github.com/SullyChen/Autopilot-TensorFlow
+SullyChen's Autopilot-Tensorflow project was used and slightly adapted to generate the steering angles for the car when driving in Autonomous mode. He based his tensorflow implementation on a convolutional neural network described in a Nvidia paper. You can see his project here: https://github.com/SullyChen/Autopilot-TensorFlow
 
 Hamuchiwa's AutoRCCar project was a big inspiration when I created this project. The object recognition in my project is heavily based on his implementation and currently still uses the Haar cascade classifier he created to detect stop signs. You can follow his project here: https://github.com/hamuchiwa/AutoRCCar
 

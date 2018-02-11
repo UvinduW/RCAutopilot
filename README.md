@@ -3,6 +3,7 @@ __Note: Documentation for this repository is still in progress and there may be 
 ![Autonomous RC Car](Media/cover_photo.JPG "The Car")
 
 You can see the car in action here:
+
 [![Car in action](https://img.youtube.com/vi/O5LzdAIA9OY/0.jpg)](https://www.youtube.com/watch?v=O5LzdAIA9OY)
 
 ## Overview

@@ -1,8 +1,26 @@
 # RCAutopilot
 __Note: Documentation for this repository is still in progress and there may be omissions__
+![Autonomous RC Car](Media/cover_photo.JPG "The Car")
+
+You can see the car in action here:
+
+[![Car in action](https://img.youtube.com/vi/O5LzdAIA9OY/0.jpg)](https://www.youtube.com/watch?v=O5LzdAIA9OY)
+
 ## Overview
 This is a small scale demonstration of how a self-driving system could be implemented using a toy radio controlled car by having the car drive itself around a well defined track. This project has been implemented mainly in Python with a bit of C/C++ needed for the Arduino.
+
+__Acknowledgements__
+
+SullyChen's Autopilot-Tensorflow project was used and slightly adapted to generate the steering angles for the car when driving in Autonomous mode. He based his tensorflow implementation on a convolutional neural network described in a Nvidia paper. You can see his project here: https://github.com/SullyChen/Autopilot-TensorFlow
+
+Hamuchiwa's AutoRCCar project was a big inspiration when I created this project. The object recognition in my project is heavily based on his implementation and currently still uses the Haar cascade classifier he created to detect stop signs. You can follow his project here: https://github.com/hamuchiwa/AutoRCCar
+
 ### How it works
+
+A convolutional neural network (CNN) is used to generate steering angles based on video fed from the front of the car. For this to work, the network first needs to be trained. A user would have to manually drive the car and "show" the neural network how the car should handle itself around the track. This would include images of what the car "sees" as well as the input the user is giving under those conditions. Once the CNN has been given this data, it will train itself and create a model of how the car should be driven around the track. The car can now use this model to navigate its way along the track. If the track is heavily changed or the lighting conditions become drastically different to when CNN was originally trained, it may need to be retrained for the new conditions.
+In the project's current implementation, only steering angles are generated. The user manually sets a cruising throttle that the car should be at.
+Haar cascades are then used on top of all that to do some object detection. This is used to detect "Stop signs" for example.
+
 __Training__
 
 Before the car can be run in autonomous mode, it needs to be manually trained (my trained model is included). Video is captured by the Raspberry Pi using the Camera Module which is mounted on top of the car. This video is streamed over the wifi network to the PC. A gamepad connected to the PC is used to manually control the car. Each frame of video received is stored on the PC, along with the corresponding user input (steering input and throttle input). The user has to manually drive the car around the track numerous times to collect sufficient training data and cover the different conditions that the car may encounter.

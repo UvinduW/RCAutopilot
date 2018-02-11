@@ -1,6 +1,10 @@
 # RCAutopilot
-![Autonomous RC Car](Media/cover_photo.JPG "The Car")
 __Note: Documentation for this repository is still in progress and there may be omissions__
+![Autonomous RC Car](Media/cover_photo.JPG "The Car")
+
+You can see the car in action here:
+[![Car in action](https://img.youtube.com/vi/O5LzdAIA9OY/0.jpg)](https://www.youtube.com/watch?v=O5LzdAIA9OY)
+
 ## Overview
 This is a small scale demonstration of how a self-driving system could be implemented using a toy radio controlled car by having the car drive itself around a well defined track. This project has been implemented mainly in Python with a bit of C/C++ needed for the Arduino.
 ### How it works

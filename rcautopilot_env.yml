@@ -1,0 +1,54 @@
+name: RCAutopilot
+channels:
+- menpo
+- cogsci
+- conda-forge
+- anaconda
+- marta-sd
+- defaults
+dependencies:
+- intel-openmp=2018.0.0=h15fc484_7
+- libgfortran-ng=7.2.0=h9f7466a_2
+- mkl=2018.0.0=hb491cac_4
+- numpy=1.13.3=py27hbcc08e0_0
+- scipy=1.0.0=py27hf5f0f52_0
+- pygame=1.9.2a0=py27_0
+- freetype=2.7=2
+- jpeg=9b=2
+- libpng=1.6.28=2
+- libtiff=4.0.7=1
+- netifaces=0.10.6=py27_0
+- olefile=0.44=py27_0
+- pillow=4.3.0=py27_1
+- xz=5.2.3=0
+- ca-certificates=2017.08.26=h1d4fec5_0
+- certifi=2017.7.27.1=py27h9ceb091_0
+- funcsigs=1.0.2=py27h83f16ab_0
+- libedit=3.1=heed3624_0
+- libffi=3.2.1=hd88cf55_4
+- libgcc-ng=7.2.0=h7cc24e2_2
+- libprotobuf=3.4.1=h5b8497f_0
+- libstdcxx-ng=7.2.0=h7a57d05_2
+- markdown=2.6.9=py27_0
+- mock=2.0.0=py27h0c0c831_0
+- ncurses=6.0=h9df7e31_2
+- openssl=1.0.2m=h26d622b_1
+- pbr=3.1.1=py27hf64632f_0
+- pip=9.0.1=py27ha730c48_4
+- protobuf=3.4.1=py27h2ba6a9c_0
+- python=2.7.14=ha6fc286_23
+- readline=7.0=ha6073c6_4
+- setuptools=36.5.0=py27h68b189e_0
+- six=1.11.0=py27h5f960f1_1
+- sqlite=3.20.1=hb898158_2
+- tk=8.6.7=hc745277_3
+- werkzeug=0.12.2=py27hbf75dff_0
+- wheel=0.29.0=py27h411dd7b_1
+- zlib=1.2.11=ha838bed_2
+- backports.weakref=1.0rc1=py27_0
+- cudatoolkit=8.0=0
+- cudnn=5.1=0
+- tensorflow=1.2.0=py27he497762_3
+- opencv=2.4.11=nppy27_0
+
+

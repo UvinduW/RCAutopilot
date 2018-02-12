@@ -8,12 +8,11 @@ import picamera
 import serial
 from time import sleep
 
-#host = "192.168.13.84"
-#host = "192.168.0.17"
+# Set server IP address & Port
 host = "192.168.0.100"
 port = 8000
 
-
+# Thread to handle steering commands
 def steer():
     global command_client
     global ArduinoPort
@@ -22,9 +21,10 @@ def steer():
     try:
         while send_inst:
             sleep(0.1)
+            # Read command received from server
             recvCommand = command_client.recv(1024)
             
-            
+            # Quit if the received command is "q" or empty string
             if (recvCommand=="q" or recvCommand==""):
                 command_client.close
                 print 'Exit'
@@ -33,15 +33,17 @@ def steer():
                 ArduinoPort.close()            
                 break;
             else:
+                # Send the received control command to the Arduino
                 print (recvCommand)
                 ArduinoPort.write(recvCommand.encode())
     except:
+        # Stop and reset car if an error occurs
         recvCommand = "00000000"
         ArduinoPort.write(recvCommand.encode())
         print "Error! Connection lost!"
 
         
-
+# Thread to handle video transmission
 def VideoStream():
     global command_client
     global ArduinoPort

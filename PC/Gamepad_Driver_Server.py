@@ -257,8 +257,8 @@ def object_detection(cascade_classifier, gray_image, colour_image, sign_type):
         # Draw rectangle around object
         cv2.rectangle(colour_image, (x_pos + 5, y_pos + 5), (x_pos + width - 5, y_pos + height - 5), (255, 255, 255), 2)
 
-        # If it is a stop sign height and width should be the same as classifier is a square
-        if width / height == 1:
+        # If it is a stop sign
+        if sign_type == "S":
             cv2.putText(colour_image, 'STOP', (x_pos, y_pos - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
             if print_stop_sign_width == 1:
                 print "Stop sign width: " + str(width)

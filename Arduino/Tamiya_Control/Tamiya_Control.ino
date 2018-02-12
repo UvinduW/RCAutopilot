@@ -33,8 +33,6 @@ int throttle=0;
 int angle=0;
 int vehicle_speed=0;
 
-int reverseEngaged=0;
-
 void setup() {
   //Setup serial port
   Serial.begin(115200);
@@ -58,28 +56,37 @@ void loop() {
     control_message[index] = command;
     index++;
   }
+  
+  //If 8 characters have been received
   if (index >= 8)
   {
+    //Decompose array to calculate the steering angle specified
    angle =  100 * control_message[1] + 10 * control_message[2] + control_message[3];
    //Serial.print(angle);
+    //Decompose array to calculate the throttle value specified
    throttle = 100 * control_message[5] + 10 * control_message[6] + control_message[7];
    //Serial.print(throttle);
    
+    //Scale angle to 50 degrees of turn
     turnAngle = angle*50/255;
     if (control_message[0] == 1)
     {
+      //Change sign if it's a left turn
       turnAngle = turnAngle * -1;
     }
+    //Send command to steering servo
     turnMotor.write(90 + turnAngle + trimAngle);
     
+    //Scale throttle to 30 units from neutral (90)
     vehicle_speed = throttle*30/255;
     if (control_message[4] == 0)
     {
+      //Driving forwards
       driveMotor.write(90 - vehicle_speed);
-      reverseEngaged=0;
     }
     else
     {
+      //Driving reverse
       driveMotor.write(90 + vehicle_speed);
     }
     
